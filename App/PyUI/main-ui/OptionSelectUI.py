@@ -70,7 +70,6 @@ while(True):
         if(ControllerInput.A == selected.get_input()):
             subprocess.run(selected.get_selection().get_value(), shell=True)
             selected = None
-            sys.exit(0)
         elif(ControllerInput.B == selected.get_input()):
             sys.exit(1)
 

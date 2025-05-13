@@ -6,6 +6,7 @@ from classes.helpers import display, call_menu
 
 def main():
 
+    leave_bitpal = False
     launching_game = False
     mission_completed = False
 
@@ -17,14 +18,21 @@ def main():
     display(myBitPal.get_random_fact(), okay=True)
     sleep(0.05) # debounce
 
-    call_menu("BitPal - Main", "main.json")
-    sleep(0.05) # debounce
+    while leave_bitpal == False:
 
-    myBitPal.save()
+        myBitPal.save()
 
-    if launching_game == False and mission_completed == False:
-        myBitPal.set_random_bad_mood()
-        display(myBitPal.get_random_guilt_trip(), confirm=True)
+        call_menu("BitPal - Main", "main.json")
+        sleep(0.05) # debounce
+
+        myBitPal.save()
+
+        if not launching_game and not mission_completed:
+            myBitPal.set_random_bad_mood()
+            if not myBitPal.guilt_trip():
+                leave_bitpal = True
+        else:
+            leave_bitpal = True
 
 if __name__ == "__main__":
     main()

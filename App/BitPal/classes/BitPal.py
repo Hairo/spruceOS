@@ -1,6 +1,7 @@
 import json
 import os
 import random
+import subprocess
 import time
 
 from .helpers import display
@@ -85,6 +86,13 @@ class BitPal:
 			self.xp -= self.xp_next
 			self.xp_next = (self.level + 1) * 50
 
+	def guilt_trip(self):
+		shell = "/bin/sh"
+		guilt_script_path = "/mnt/SDCARD/App/BitPal/guilt_trip.sh"
+		guilt_trip = self.get_random_guilt_trip()
+		result = subprocess.run([shell, guilt_script_path, guilt_trip])
+		# return False if user pressed A to confirm exiting BP
+		return result.returncode == 0
 
 	##### Random message generation stuff #####
 
@@ -179,6 +187,7 @@ class BitPal:
 	def get_random_fact(cls):
 		return random.choice(cls.FACTS)
 
+
 	THANKS = [
 		"Phew! ... I thought I'd be alone! Thanks for sticking with me!",
 		"You stayed! BitPal is so relieved! Let's keep adventuring!",
@@ -191,6 +200,7 @@ class BitPal:
 	@classmethod
 	def get_random_thanks(cls):
 		return random.choice(cls.THANKS)
+
 
 	def get_random_greeting(self):
 		face = self.get_face()
@@ -243,4 +253,5 @@ class BitPal:
 			f"{face}\n \n1UP ACQUIRED! BitPal needs you to defeat the final boss!",
 			f"{face}\n \nEXIT? THINK AGAIN! All your base are belong to us! You have no chance to survive!"
 		]
-		return random.choice(guilt_trips)
+		full_message = random.choice(guilt_trips) + "\n \nReally leave BitPal?"
+		return full_message

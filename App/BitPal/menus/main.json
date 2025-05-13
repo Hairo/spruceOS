@@ -3,7 +3,7 @@
     "primary_text": "BitPal Status",
     "image_path": "",
     "image_path_selected": "",
-    "value": "/mnt/SDCARD/App/BitPal/menus/main.sh status"
+    "value": "$DEVICE_PYTHON3_PATH /mnt/SDCARD/App/BitPal/status.py"
   },
   {
     "primary_text": "Start New Mission",
