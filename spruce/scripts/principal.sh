@@ -64,7 +64,9 @@ while [ 1 ]; do
     fi
 
     if [ -f /mnt/SDCARD/spruce/flags/bitpal.lock ]; then
-        /mnt/SDCARD/App/BitPal/bitpal.sh
+        export PYSDL2_DLL_PATH="/mnt/SDCARD/App/PyUI/dll"
+        export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/miyoo/lib"
+        "$DEVICE_PYTHON3_PATH" /mnt/SDCARD/App/BitPal/main.py
         rm -f /mnt/SDCARD/spruce/flags/bitpal.lock
     fi
 

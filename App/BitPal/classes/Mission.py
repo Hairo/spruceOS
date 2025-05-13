@@ -41,3 +41,12 @@ class Mission:
 		
 		self.xp_reward = xp_mult * self.duration
 		self.display_text = display_text
+
+
+class MissionList:
+
+	ACTIVE_MISSIONS_PATH = "/mnt/SDCARD/Saves/spruce/bitpal_data/active_missions.json"
+	COMPLETED_MISSIONS_PATH = "/mnt/SDCARD/Saves/spruce/bitpal_data/completed_missions.json"
+
+	# def __init__():
+		
