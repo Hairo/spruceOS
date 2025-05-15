@@ -3,6 +3,12 @@ from classes.helpers import display, call_menu
 # from classes.Misisons import Missions, ActiveMissions, CompletedMissions
 from time import sleep
 
+import subprocess
+
+# kill parent menu instance now or else that original instance will still be open
+# all the way until we hit B at some point :grimacing:
+subprocess.run(["/bin/sh", "-c", "/mnt/SDCARD/App/BitPal/killUI.sh"])
+
 myBitPal = BitPal.load()
 # myActiveMissions = ActiveMissions.load()
 
