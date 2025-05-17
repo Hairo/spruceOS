@@ -29,9 +29,11 @@ config.load()
 
 selected_theme = os.path.join(config["themeDir"],config["theme"])
                               
-theme = Theme(os.path.join(config["themeDir"],config["theme"]))
 
 device = MiyooFlip()
+
+theme = Theme(os.path.join(config["themeDir"],config["theme"]), device.screen_width, device.screen_height)
+
 display = Display(theme, device)
 controller = Controller(device, config)
 view_creator = ViewCreator(display,controller,device,theme)

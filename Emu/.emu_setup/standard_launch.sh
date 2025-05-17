@@ -115,7 +115,7 @@ export START_TIME_PATH="/tmp/start_time"
 export END_TIME_PATH="/tmp/end_time"
 export DURATION_PATH="/tmp/session_duration"
 export TRACKER_JSON_PATH="/mnt/SDCARD/Saves/spruce/gtt.json"
-export MISSION_JSON_PATH="/mnt/SDCARD/Saves/spruce/bitpal_data/active_missions.json"
+export MISSION_JSON_PATH="/mnt/SDCARD/Saves/bitpal_data/active_missions.json"
 
 record_session_start_time() {
     date +%s > "$START_TIME_PATH"
